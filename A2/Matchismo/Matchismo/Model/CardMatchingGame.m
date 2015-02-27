@@ -12,6 +12,7 @@
 
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards; // of cards
+@property (nonatomic, strong) NSMutableArray *matchStyleCards;   // can transform 2M into 3M or 3M into 2M
 
 @end
 
@@ -23,6 +24,14 @@
         _cards = [[NSMutableArray alloc] init];
     }
     return _cards;
+}
+
+- (NSMutableArray *)matchStyleCards
+{
+    if (!_matchStyleCards) {
+        _matchStyleCards = [[NSMutableArray alloc] init];
+    }
+    return _matchStyleCards;
 }
 
 // draw some random card from deck, if number is more than deck of cards wll dead.
@@ -56,22 +65,32 @@
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;
+            
+            if ([self.matchStyleCards containsObject:card]) {
+                [self.matchStyleCards removeObject:card];
+            }
         } else {
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
-                    NSInteger matchScore = [card match:@[otherCard]];
-                    if (matchScore) {
-                        self.score += matchScore * MATCH_BONUS;
-                        card.matched = YES;
-                        otherCard.matched = YES;
-                    } else {
-                        self.score -= MISMATCH_PENALTY;
-                        otherCard.chosen = NO;
+                    if (![self.matchStyleCards containsObject:otherCard]) {
+                        [self.matchStyleCards addObject:otherCard];
                     }
-                    break;
+                    NSInteger matchScore = 0;
+                    if (self.useThreeMatchStyle) {
+                        if (self.matchStyleCards.count == 2) {
+                            Card *firstCard = self.matchStyleCards[0];
+                            Card *secondCard = self.matchStyleCards[1];
+                            matchScore = [firstCard match:@[secondCard]];
+                            matchScore += [card match:self.matchStyleCards];
+                            [self card:card match:self.matchStyleCards withScore:matchScore];
+                        }
+                    } else {
+                        matchScore = [card match:self.matchStyleCards];
+                        [self card:card match:self.matchStyleCards withScore:matchScore];
+                        break;
+                    }
                 }
             }
-            
             self.score -= COST_TO_CHOOSE;
             card.chosen = YES;
         }
@@ -83,6 +102,21 @@
     return self.cards[index];
 }
 
-
+- (void)card:(Card *)card match:(NSMutableArray *)cards withScore:(NSInteger)matchScore
+{
+    if (matchScore) {
+        self.score += matchScore * MATCH_BONUS;
+        card.matched = YES;
+        for (Card *otherCard in cards) {
+            otherCard.matched = YES;
+        }
+        [cards removeAllObjects];
+    } else {
+        self.score -= MISMATCH_PENALTY;
+        Card *firstCard = [cards firstObject];
+        firstCard.chosen = NO;
+        [cards removeObject:firstCard];
+    }
+}
 
 @end

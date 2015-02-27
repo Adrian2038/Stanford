@@ -12,6 +12,7 @@
 @interface CardMatchingGame : NSObject
 
 @property (nonatomic, readonly) NSInteger score;
+@property (nonatomic, assign) BOOL useThreeMatchStyle;
 
 - (instancetype)initWithCardNumber:(NSUInteger)number withDeck:(Deck *)deck;
 
