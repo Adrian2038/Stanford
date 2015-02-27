@@ -10,6 +10,24 @@
 
 @implementation PlayingCard
 
+// Override from the Card class
+- (int)match:(NSArray *)cards
+{
+    int score = 0;
+    
+    if (cards.count == 1) {
+        if ([[cards firstObject] isKindOfClass:[PlayingCard class]]) {
+            PlayingCard *otherCard = (PlayingCard *)[cards firstObject];
+            if ([self.suit isEqualToString:otherCard.suit]) {
+                score = 1;
+            } else if (self.rank == otherCard.rank){
+                score = 4;
+            }
+        }
+    }
+    return score;
+}
+
 - (NSString *)contents
 {
     NSArray *rankStrings = [PlayingCard rankStrings];
