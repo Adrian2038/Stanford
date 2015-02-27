@@ -40,6 +40,14 @@
     [self updateUI];
 }
 
+- (IBAction)redealButton:(UIButton *)sender
+{
+    [self redealUI];
+    self.game = nil;
+    self.scoreLabel.text = @"Score : 0";
+}
+
+#pragma mark - Touch card button methods
 - (void)updateUI
 {
     for (UIButton *cardButton in self.cardButtons) {
@@ -63,6 +71,23 @@
     return card.isChosen ? card.contents : @"";
 }
 
+#pragma mark - Redeal button method
+- (void)redealUI
+{
+    for (UIButton *cardButton in self.cardButtons) {
+        int cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
+        Card *card = [self.game cardAtIndex:cardButtonIndex];
+        
+        if (!cardButton.enabled) {
+            cardButton.enabled = YES;
+        }
+        if (card.isChosen) {
+            card.chosen = NO;
+            [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
+            [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
+        }
+    }
+}
 
 
 @end
