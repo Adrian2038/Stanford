@@ -34,7 +34,7 @@
     return _matchStyleCards;
 }
 
-// draw some random card from deck, if number is more than deck of cards wll dead.
+// draw some random card from deck, if number is more than deck of cards will dead.
 - (instancetype)initWithCardNumber:(NSUInteger)number withDeck:(Deck *)deck
 {
     self = [super init];

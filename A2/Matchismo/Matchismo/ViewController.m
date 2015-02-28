@@ -12,9 +12,10 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) CardMatchingGame *game;
+@property (nonatomic, assign) NSInteger segmentState;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (nonatomic, assign) NSInteger segmentState;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 @end
 
@@ -39,6 +40,9 @@
     if (self.segmentState == 1) {
         self.game.useThreeMatchStyle = YES;
     }
+    if (self.segmentControl.enabled) {
+        self.segmentControl.enabled = NO;
+    }
     
     int cardButtonIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardButtonIndex];
@@ -47,6 +51,9 @@
 
 - (IBAction)redealButton:(UIButton *)sender
 {
+    if (!self.segmentControl.enabled) {
+        self.segmentControl.enabled = YES;
+    }
     [self redealUI];
     self.game = nil;
     self.scoreLabel.text = @"Score : 0";
