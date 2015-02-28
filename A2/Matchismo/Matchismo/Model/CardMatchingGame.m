@@ -11,8 +11,9 @@
 @interface CardMatchingGame ()
 
 @property (nonatomic, readwrite) NSInteger score;
+@property (nonatomic, readwrite) NSString *gameDetail;
 @property (nonatomic, strong) NSMutableArray *cards; // of cards
-@property (nonatomic, strong) NSMutableArray *matchStyleCards;   // can transform 2M into 3M or 3M into 2M
+@property (nonatomic, strong) NSMutableArray *matchStyleCards;
 
 @end
 
@@ -34,7 +35,7 @@
     return _matchStyleCards;
 }
 
-// draw some random card from deck, if number is more than deck of cards will dead.
+// draw some random card from deck, if number is more than the deck of cards , the game will dead.
 - (instancetype)initWithCardNumber:(NSUInteger)number withDeck:(Deck *)deck
 {
     self = [super init];
@@ -69,7 +70,15 @@
             if ([self.matchStyleCards containsObject:card]) {
                 [self.matchStyleCards removeObject:card];
             }
+            self.gameDetail = [self showGameDetailWithCards:self.matchStyleCards
+                                                   withCard:nil
+                                                      score:0
+                                                   useScore:NO];
         } else {
+            self.gameDetail = [self showGameDetailWithCards:self.matchStyleCards
+                                                   withCard:card
+                                                      score:0
+                                                   useScore:NO];
             for (Card *otherCard in self.cards) {
                 if (otherCard.isChosen && !otherCard.isMatched) {
                     if (![self.matchStyleCards containsObject:otherCard]) {
@@ -82,10 +91,24 @@
                             Card *secondCard = self.matchStyleCards[1];
                             matchScore = [firstCard match:@[secondCard]];
                             matchScore += [card match:self.matchStyleCards];
+                            self.gameDetail = [self showGameDetailWithCards:self.matchStyleCards
+                                                                   withCard:card
+                                                                      score:matchScore
+                                                                   useScore:YES];
+
                             [self card:card match:self.matchStyleCards withScore:matchScore];
+                        } else {
+                            self.gameDetail = [self showGameDetailWithCards:self.matchStyleCards
+                                                                   withCard:card
+                                                                      score:0
+                                                                   useScore:NO];
                         }
                     } else {
                         matchScore = [card match:self.matchStyleCards];
+                        self.gameDetail = [self showGameDetailWithCards:self.matchStyleCards
+                                                               withCard:card
+                                                                  score:matchScore
+                                                               useScore:YES];
                         [self card:card match:self.matchStyleCards withScore:matchScore];
                         break;
                     }
@@ -116,6 +139,58 @@
         Card *firstCard = [cards firstObject];
         firstCard.chosen = NO;
         [cards removeObject:firstCard];
+    }
+}
+
+- (NSString *)showGameDetailWithCards:(NSMutableArray *)cards
+                             withCard:(Card *)card
+                                score:(NSInteger)matchScore
+                             useScore:(BOOL)useScore
+{
+    int score = 0;
+    if (matchScore) {
+        score = matchScore * MATCH_BONUS;
+    } else {
+        score = -(MISMATCH_PENALTY + COST_TO_CHOOSE);
+    }
+
+    NSString *cardsContent = nil;
+    if (cards.count == 0) {
+        cardsContent = nil;
+    }
+    else if (cards.count == 1) {
+        Card *firstCard = [cards firstObject];
+        cardsContent = [NSString stringWithFormat:@"%@", firstCard.contents];
+    } else if (cards.count == 2) {
+        Card *firstCard = cards[0];
+        Card *secondCard = cards[1];
+        cardsContent =  [NSString stringWithFormat:@"%@%@", firstCard.contents, secondCard.contents ];
+    }
+    
+    if (useScore) {
+        if (card) {
+            if (cardsContent) {
+                return [NSString stringWithFormat:@"%@%@ %d", cardsContent, card.contents, score];
+            }
+            return [NSString stringWithFormat:@"%@", card.contents];
+        } else {
+            if (cardsContent) {
+                return [NSString stringWithFormat:@"%@", cardsContent];
+            }
+            return @"Choose Nothing";
+        }
+    } else {
+        if (card) {
+            if (cardsContent) {
+                return [NSString stringWithFormat:@"%@%@", cardsContent, card.contents];
+            }
+            return [NSString stringWithFormat:@"%@", card.contents];
+        } else {
+            if (cardsContent) {
+                return [NSString stringWithFormat:@"%@", cardsContent];
+            }
+            return @"Choose Nothing";
+        }
     }
 }
 

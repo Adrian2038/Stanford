@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger segmentState;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gameDetailLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 @end
@@ -56,7 +57,9 @@
     }
     [self redealUI];
     self.game = nil;
+    self.gameDetailLabel.text = @"Choose Nothing";
     self.scoreLabel.text = @"Score : 0";
+    
 }
 
 - (IBAction)changeMatchStyle:(UISegmentedControl *)sender
@@ -80,6 +83,7 @@
         [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
         cardButton.enabled = !card.isMatched;
         
+        self.gameDetailLabel.text = self.game.gameDetail;
         self.scoreLabel.text = [NSString stringWithFormat:@"Score : %d", self.game.score];
     }
 }

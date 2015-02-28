@@ -173,10 +173,17 @@
                                     <action selector="changeMatchStyle:" destination="vXZ-lx-hvc" eventType="valueChanged" id="MVM-a5-3c2"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Nothing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zih-dO-JDJ">
+                                <rect key="frame" x="16" y="382" width="284" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.19555553047645305" green="0.49975198412698407" blue="0.20667478801282721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="gameDetailLabel" destination="zih-dO-JDJ" id="07d-xF-YO8"/>
                         <outlet property="scoreLabel" destination="nZ3-Aq-LNf" id="Oem-7d-BqA"/>
                         <outlet property="segmentControl" destination="9Ug-nd-FTf" id="gv9-gV-67W"/>
                         <outletCollection property="cardButtons" destination="iTf-Pu-1id" id="2XM-6I-b7F"/>
