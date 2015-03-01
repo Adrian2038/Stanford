@@ -154,16 +154,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9Ug-nd-FTf">
-                                <rect key="frame" x="201" y="491" width="99" height="29"/>
-                                <segments>
-                                    <segment title="2M"/>
-                                    <segment title="3M"/>
-                                </segments>
-                                <connections>
-                                    <action selector="changeMatchStyle:" destination="vXZ-lx-hvc" eventType="valueChanged" id="MVM-a5-3c2"/>
-                                </connections>
-                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Nothing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zih-dO-JDJ">
                                 <rect key="frame" x="16" y="406" width="284" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -383,7 +373,6 @@
                     <connections>
                         <outlet property="gameDetailLabel" destination="zih-dO-JDJ" id="07d-xF-YO8"/>
                         <outlet property="scoreLabel" destination="nZ3-Aq-LNf" id="Oem-7d-BqA"/>
-                        <outlet property="segmentControl" destination="9Ug-nd-FTf" id="gv9-gV-67W"/>
                         <outletCollection property="cardButtons" destination="iTf-Pu-1id" id="2XM-6I-b7F"/>
                         <outletCollection property="cardButtons" destination="xs1-Nz-LGE" id="7rG-OU-l9c"/>
                         <outletCollection property="cardButtons" destination="2HW-lC-1Uo" id="ndL-Rm-HRV"/>
@@ -420,10 +409,10 @@
             </objects>
             <point key="canvasLocation" x="314" y="337"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Gard View Controller-->
         <scene sceneID="VnC-qE-4BO">
             <objects>
-                <viewController id="k7s-mo-Ez3" sceneMemberID="viewController">
+                <viewController id="k7s-mo-Ez3" customClass="SetGardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WoK-60-TQl"/>
                         <viewControllerLayoutGuide type="bottom" id="2mu-Vu-apU"/>

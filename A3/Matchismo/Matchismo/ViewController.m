@@ -12,11 +12,9 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) CardMatchingGame *game;
-@property (nonatomic, assign) NSInteger segmentState;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gameDetailLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 @end
 
@@ -38,13 +36,6 @@
 
 - (IBAction)touchCardButton:(UIButton *)sender
 {
-    if (self.segmentState == 1) {
-        self.game.useThreeMatchStyle = YES;
-    }
-    if (self.segmentControl.enabled) {
-        self.segmentControl.enabled = NO;
-    }
-    
     int cardButtonIndex = [self.cardButtons indexOfObject:sender];
     [self.game chooseCardAtIndex:cardButtonIndex];
     [self updateUI];
@@ -52,25 +43,11 @@
 
 - (IBAction)redealButton:(UIButton *)sender
 {
-    if (!self.segmentControl.enabled) {
-        self.segmentControl.enabled = YES;
-    }
     [self redealUI];
     self.game = nil;
     self.gameDetailLabel.text = @"Choose Nothing";
     self.scoreLabel.text = @"Score : 0";
     
-}
-
-- (IBAction)changeMatchStyle:(UISegmentedControl *)sender
-{
-    if (sender.selectedSegmentIndex == 0) {
-        self.game.useThreeMatchStyle = NO;
-        self.segmentState = 0;
-    } else {
-        self.game.useThreeMatchStyle = YES;
-        self.segmentState = 1;
-    }
 }
 
 #pragma mark - Touch card button methods
