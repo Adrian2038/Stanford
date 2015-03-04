@@ -11,7 +11,6 @@
 
 @implementation SetCardDeck
 
-// Like the playing card deck , the set card game should override the init method
 - (instancetype)init
 {
     self = [super init];

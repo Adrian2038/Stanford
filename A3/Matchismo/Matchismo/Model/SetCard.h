@@ -12,7 +12,13 @@
 
 @property (nonatomic, strong) NSString *color;
 @property (nonatomic, strong) NSString *symbol;
-@property (nonatomic, strong) NSAttributedString *shading;
+@property (nonatomic, strong) NSString *shading;
 @property (nonatomic, assign) NSUInteger number;
+
++ (NSArray *)validColor;
++ (NSArray *)validSymbol;
++ (NSArray *)validShading;
++ (NSArray *)numberStrings;
++ (NSUInteger)maxNumber;
 
 @end
