@@ -15,15 +15,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="push" id="oqx-Rl-99a"/>
-                        <segue destination="k7s-mo-Ez3" kind="push" id="PNL-Ho-0mx"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="oWD-G8-Ps0"/>
+                        <segue destination="k7s-mo-Ez3" kind="relationship" relationship="viewControllers" id="4bX-eb-hpq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuR-dc-B76" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-566" y="128"/>
+            <point key="canvasLocation" x="-590" y="162"/>
         </scene>
-        <!--Playing Card View Controller-->
+        <!--PlayingCard-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="PlayingCardViewController" sceneMemberID="viewController">
@@ -378,7 +378,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUe-TG-SJh">
-                                <rect key="frame" x="18" y="492" width="66" height="27"/>
+                                <rect key="frame" x="16" y="475" width="66" height="27"/>
                                 <state key="normal" title="Re_Deal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -389,6 +389,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.19555553047645305" green="0.49975198412698407" blue="0.20667478801282721" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="PlayingCard" image="PlayingCard.png" id="Gbq-sa-ihW"/>
                     <navigationItem key="navigationItem" id="AOo-Jh-uHO"/>
                     <connections>
                         <outlet property="gameDetailLabel" destination="zih-dO-JDJ" id="07d-xF-YO8"/>
@@ -429,7 +430,7 @@
             </objects>
             <point key="canvasLocation" x="350" y="-175"/>
         </scene>
-        <!--Set Gard View Controller-->
+        <!--SetGame-->
         <scene sceneID="VnC-qE-4BO">
             <objects>
                 <viewController id="k7s-mo-Ez3" customClass="SetGardViewController" sceneMemberID="viewController">
@@ -442,6 +443,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="SetGame" image="PlayingCard.png" id="1lP-Qn-cne"/>
                     <navigationItem key="navigationItem" id="1Hf-Tv-hDO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vr-nB-4SL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -450,6 +452,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PlayingCard.png" width="30" height="30"/>
         <image name="cardback" width="64" height="96"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

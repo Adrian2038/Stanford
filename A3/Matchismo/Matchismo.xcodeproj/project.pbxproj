@@ -19,6 +19,7 @@
 		8B3BF25D1A9F593D00865904 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BF2581A9F593D00865904 /* PlayingCard.m */; };
 		8B3BF25E1A9F593D00865904 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3BF25A1A9F593D00865904 /* PlayingCardDeck.m */; };
 		8B3BF2601A9F596000865904 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B3BF25F1A9F596000865904 /* Images.xcassets */; };
+		8B949B9B1AA747BD009A5C24 /* PlayingCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B949B9A1AA747BD009A5C24 /* PlayingCard.png */; };
 		8BB968871AA36A8200FEEB5B /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB968861AA36A8200FEEB5B /* SetCard.m */; };
 		8BB9688A1AA36AAB00FEEB5B /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB968891AA36AAB00FEEB5B /* SetCardDeck.m */; };
 		8BB9688D1AA36E3700FEEB5B /* SetGardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9688C1AA36E3700FEEB5B /* SetGardViewController.m */; };
@@ -59,6 +60,7 @@
 		8B3BF2591A9F593D00865904 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		8B3BF25A1A9F593D00865904 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
 		8B3BF25F1A9F596000865904 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8B949B9A1AA747BD009A5C24 /* PlayingCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayingCard.png; sourceTree = "<group>"; };
 		8BB968851AA36A8200FEEB5B /* SetCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCard.h; sourceTree = "<group>"; };
 		8BB968861AA36A8200FEEB5B /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCard.m; sourceTree = "<group>"; };
 		8BB968881AA36AAB00FEEB5B /* SetCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCardDeck.h; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				8B3BF2291A9F58E200865904 /* AppDelegate.m */,
 				8B3BF2251A9F58E200865904 /* Info.plist */,
 				8B3BF2261A9F58E200865904 /* main.m */,
+				8B949B9A1AA747BD009A5C24 /* PlayingCard.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B949B9B1AA747BD009A5C24 /* PlayingCard.png in Resources */,
 				8B3BF2601A9F596000865904 /* Images.xcassets in Resources */,
 				8B3BF2351A9F58E200865904 /* LaunchScreen.xib in Resources */,
 				8B3BF2511A9F593100865904 /* Main.storyboard in Resources */,
