@@ -147,7 +147,7 @@
                                 score:(NSInteger)matchScore
                              useScore:(BOOL)useScore
 {
-    int score = 0;
+    NSInteger score = 0;
     if (matchScore) {
         score = matchScore * MATCH_BONUS;
     } else {
@@ -170,7 +170,7 @@
     if (useScore) {
         if (card) {
             if (cardsContent) {
-                return [NSString stringWithFormat:@"%@%@ %d", cardsContent, card.contents, score];
+                return [NSString stringWithFormat:@"%@%@ %ld", cardsContent, card.contents, (long)score];
             }
             return [NSString stringWithFormat:@"%@", card.contents];
         } else {
