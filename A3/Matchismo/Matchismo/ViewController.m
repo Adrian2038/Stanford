@@ -51,6 +51,7 @@
 }
 
 #pragma mark - Touch card button methods
+
 - (void)updateUI
 {
     for (UIButton *cardButton in self.cardButtons) {
@@ -76,6 +77,7 @@
 }
 
 #pragma mark - Redeal button method
+
 - (void)redealUI
 {
     for (UIButton *cardButton in self.cardButtons) {
