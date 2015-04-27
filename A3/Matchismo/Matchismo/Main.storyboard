@@ -441,7 +441,7 @@
                     <view key="view" contentMode="scaleToFill" id="1Cc-99-NG0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.19555553049999999" green="0.49975198409999999" blue="0.206674788" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="SetGame" image="PlayingCard.png" id="1lP-Qn-cne"/>
                     <navigationItem key="navigationItem" id="1Hf-Tv-hDO"/>
