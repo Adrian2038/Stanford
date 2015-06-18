@@ -28,7 +28,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="gameVIew" destination="0o1-e6-5CA" id="POa-Py-lM2"/>
+                        <outlet property="gameView" destination="0o1-e6-5CA" id="QNF-1p-y31"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
